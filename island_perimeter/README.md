@@ -1,4 +1,4 @@
-# sland Perimeter
+# Island Perimeter
 
 ## Task
 
