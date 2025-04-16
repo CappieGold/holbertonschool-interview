@@ -12,16 +12,17 @@ def canUnlockAll(boxes):
     """
     unlocked = {0}
     stack = [0]
-    
+
     while stack:
         current_box = stack.pop()
         # Pour chaque clé trouvée dans la boîte courante
         for key in boxes[current_box]:
-            # On vérifie que la clé correspond à une boîte existante et pas encore ouverte.
+            # On vérifie que la clé correspond à une boîte existante
+            # et pas encore ouverte.
             if key < len(boxes) and key not in unlocked:
                 unlocked.add(key)
                 stack.append(key)
-    
+
     # Si le nombre de boîtes déverrouillées est égal au nombre total de boîtes,
     # alors toutes les boîtes peuvent être ouvertes.
     return len(unlocked) == len(boxes)
