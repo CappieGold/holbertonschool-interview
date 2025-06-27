@@ -37,3 +37,41 @@ def validUTF8(data):
             num_bytes -= 1
 
     return num_bytes == 0
+
+# def validUTF8(data):
+#     """
+#     Validates if a list of integers represents a valid UTF-8 encoding.
+
+#     Args:
+#         data (list): List of integers representing bytes.
+
+#     Returns:
+#         bool: True if the data is valid UTF-8, False otherwise.
+#     """
+#     bytes_to_follow = 0
+
+#     for num in data:
+#         # Garder seulement les 8 bits de droite
+#         byte = num & 0xFF
+
+#         if bytes_to_follow == 0:
+#             # On commence un nouveau caractère
+#             if byte < 128:  # 0xxxxxxx (1 byte)
+#                 continue
+#             elif byte < 224:  # 110xxxxx (2 bytes)
+#                 bytes_to_follow = 1
+#             elif byte < 240:  # 1110xxxx (3 bytes)
+#                 bytes_to_follow = 2
+#             elif byte < 248:  # 11110xxx (4 bytes)
+#                 bytes_to_follow = 3
+#             else:
+#                 # Format invalide
+#                 return False
+#         else:
+#             # On attend un byte de continuation
+#             if byte < 128 or byte >= 192:  # Doit être 10xxxxxx
+#                 return False
+#             bytes_to_follow -= 1
+
+#     # Tous les caractères doivent être complets
+#    return bytes_to_follow == 0
