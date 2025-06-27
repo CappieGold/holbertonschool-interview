@@ -17,6 +17,9 @@ def validUTF8(data):
     num_bytes = 0
 
     for byte in data:
+        # Keep only the 8 least significant bits
+        byte = byte & 0xFF
+
         if num_bytes == 0:
             if (byte >> 7) == 0b0:  # 1-byte character
                 continue
