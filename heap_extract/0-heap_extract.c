@@ -44,7 +44,6 @@ heap_t *get_last_node(heap_t *root, size_t index, size_t size)
 void heapify_down(heap_t *root)
 {
     heap_t *largest = root;
-    heap_t *temp;
     int temp_n;
     
     if (!root)
@@ -75,7 +74,7 @@ void heapify_down(heap_t *root)
  */
 int heap_extract(heap_t **root)
 {
-    heap_t *last_node, *temp;
+    heap_t *last_node;
     int root_value;
     size_t size;
     
