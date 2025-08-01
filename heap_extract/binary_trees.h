@@ -1,3 +1,8 @@
+#ifndef BINARY_TREES_H
+#define BINARY_TREES_H
+
+#include <stddef.h>
+
 /**
  * struct binary_tree_s - Binary tree node
  *
@@ -15,3 +20,11 @@ struct binary_tree_s
 };
 
 typedef struct binary_tree_s binary_tree_t;
+typedef struct binary_tree_s heap_t;
+
+int heap_extract(heap_t **root);
+void heapify(binary_tree_t *root);
+int num_nodes(heap_t *root);
+binary_tree_t *last_node_func(heap_t *root);
+
+#endif /* BINARY_TREES_H */
