@@ -58,14 +58,49 @@ $ ./0-node
 (006)     (016)     (256)     (512)
 ```
 
+### 1. Heap - Insert
+
+Write a function that inserts a value into a Max Binary Heap:
+
+- Prototype: `heap_t *heap_insert(heap_t **root, int value);`
+- `root` is a double pointer to the root node of the Heap
+- `value` is the value to store in the node to be inserted
+- Your function must return a pointer to the inserted node, or `NULL` on failure
+- If the address stored in `root` is `NULL`, the created node must become the root node
+- Respects the `Max Heap` ordering
+
+The new node is attached at the first free slot in level-order (keeping the
+tree complete), then it is percolated up (swapping values with its parent)
+until the Max Heap property is restored.
+
+**File:** [1-heap_insert.c](./1-heap_insert.c)
+
+#### Example
+
+```console
+$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 1-main.c 1-heap_insert.c 0-binary_tree_node.c -o 1-heap_insert
+$ ./1-heap_insert
+Inserted: 98
+(098)
+
+Inserted: 402
+  .--(402)
+(098)
+
+Inserted: 12
+  .--(402)--.
+(098)     (012)
+```
+
 ## Files
 
 | File                    | Description                              |
 | ----------------------- | ----------------------------------------- |
 | `binary_trees.h`        | Header file with data structures & prototypes |
 | `0-binary_tree_node.c`  | Creates a binary tree node                |
+| `1-heap_insert.c`       | Inserts a value into a Max Binary Heap    |
 | `binary_tree_print.c`   | Helper used only to visualise a tree (not required for correction) |
-| `0-main.c`              | Example test program (not required for correction) |
+| `0-main.c`, `1-main.c`  | Example test programs (not required for correction) |
 
 ## Compilation
 
